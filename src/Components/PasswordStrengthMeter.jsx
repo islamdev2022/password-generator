@@ -22,7 +22,7 @@ function PasswordStrengthMeter({ password }) {
 
   return (
     <div>
-      <p>Password Strength: {strength}</p>
+     <div className='strength'><p>Password Strength: </p><p className='ST'>{strength}</p></div> 
     </div>
   );
 }

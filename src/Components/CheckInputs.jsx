@@ -3,7 +3,7 @@ import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import LengthInput from "./LengthInput";
 
 const CheckInputs = () => {
-  const [length, setLength] = useState(16);
+  const [length, setLength] = useState(6);
   const [password, setPassword] = useState("");
   const [options, setOptions] = useState({
     uppercase: false,
@@ -45,11 +45,31 @@ const CheckInputs = () => {
     setPassword(generatedPassword);
   };
 
+  const copyToClipboard = () => {
+    if (password) {
+      navigator.clipboard.writeText(password)
+        .then(() => {
+          alert("Password copied to clipboard!");
+        })
+        .catch((error) => {
+          console.error("Copy to clipboard failed: ", error);
+        });
+    } else {
+      alert("There's no password to copy.");
+    }
+  };
+
   // Check if at least one checkbox is checked
   const isAtLeastOneChecked = Object.values(options).some((value) => value);
 
-  return (
-    <>
+  return (<div className="all">
+    <div className="Container">
+    <div className="pass-copy">
+      <p>{password}</p>
+      <button  onClick={copyToClipboard} disabled={!password}><img src="src/assets/icon-copy.svg" alt="copy" width={15}/></button>
+    </div>
+    <div className="length">
+      <div className="char-length"><p>Character Length : </p><p className="nbr">{length}</p></div>
       <input
         type="range"
         id="lengthInput"
@@ -58,10 +78,12 @@ const CheckInputs = () => {
         value={length}
         onChange={(e) => setLength(e.target.value)}
       />
-      <p>{length}</p>
+    </div>
+    
+      
       <form>
         {Object.keys(options).map((key) => (
-          <label key={key}>
+          <label key={key}><br></br>
             <input
               type="checkbox"
               onChange={() =>
@@ -72,12 +94,11 @@ const CheckInputs = () => {
           </label>
         ))}
       </form>
-      <button onClick={generatePassword} disabled={!isAtLeastOneChecked}>
-        Generate Password
-      </button>
-      <p>Generated Password: {password}</p>
       <PasswordStrengthMeter password={password} />
-    </>
+      <button className="generate" onClick={generatePassword} disabled={!isAtLeastOneChecked}>
+        GENERATE <img src="src/assets/icon-arrow-right.svg" alt="arrow" width={10}/>
+      </button>    
+    </div></div>
   );
 };
 

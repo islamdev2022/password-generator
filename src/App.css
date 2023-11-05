@@ -1,42 +1,60 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+*{
+  font-family: 'JetBrains','sans serif';
+
+}
+.Container{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%,-50%);
+}
+.pass-copy{
+  display: flex;
+  background-color: #464646;
+}
+.pass-copy p{
+color: #a8a8a8;
+padding-left: 20px;
+}
+.pass-copy button{
+  background-color: transparent;
+  border: transparent;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+.char-length{
+  display:flex;
+
+}
+.char-length .nbr{
+  color: rgb(30, 255, 0);
+  position: absolute;
+  right: 20px;
+}
+.length input{
+  width:300px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.generate{
+ display: table;
+ margin-left: auto;
+ margin-right: auto;
+ width: 300px;
+ height: 40px;
+ background-color: greenyellow;
+ border: transparent;
+ cursor: pointer;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+form input{
+  margin: 10px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.strength{
+  display: flex;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.ST{
+  position: absolute;
+  right: 20px;
 }
