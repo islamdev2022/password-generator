@@ -12,6 +12,8 @@
 .pass-copy{
   display: flex;
   background-color: #464646;
+  height: 45px;
+  align-items: center;
 }
 .pass-copy p{
 color: #a8a8a8;
