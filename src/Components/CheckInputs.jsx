@@ -66,7 +66,7 @@ const CheckInputs = () => {
     <div className="Container">
     <div className="pass-copy">
       <p>{password}</p>
-      <button  onClick={copyToClipboard} disabled={!password}><img src="src/assets/images/icon-copy.svg" alt="copy" width={15}/></button>
+      <button  onClick={copyToClipboard} disabled={!password}><img src="images/icon-copy.svg" alt="copy" width={15}/></button>
     </div>
     <div className="length">
       <div className="char-length"><p>Character Length : </p><p className="nbr">{length}</p></div>
@@ -96,7 +96,7 @@ const CheckInputs = () => {
       </form>
       <PasswordStrengthMeter password={password} />
       <button className="generate" onClick={generatePassword} disabled={!isAtLeastOneChecked}>
-        GENERATE <img src="src/assets/images/icon-arrow-right.svg" alt="arrow" width={10}/>
+        GENERATE <img src="images/icon-arrow-right.svg" alt="arrow" width={10}/>
       </button>    
     </div></div>
   );
